@@ -1,0 +1,35 @@
+body {
+  background-color: lightblue;
+}
+
+#nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(139, 173, 185);
+}
+
+#nav-li {
+  float: left;
+}
+
+#nav-a {
+    display: block;
+    color:whitesmoke;
+    text-align: center;
+    padding: 14px 16px;
+    background-color: rgb(139, 173, 185);
+    text-decoration: none;
+}
+
+#nav-a:hover {
+  background: rgb(87, 110, 118);
+
+}
+
+#nav-a:active {
+  background: rgb(124, 214, 168);
+
+}
+
