@@ -20,5 +20,20 @@ const newImage = document.createElement('img');
 newImage.setAttribute('src', `images/${file}`);
 newImage.setAttribute('alt', altTitles[file]);
 thumbBar.appendChild(newImage);
+newImage.addEventListener("click", function () {
+  displayedImage.src = newImage.src;
+  displayedImage.alt = newImage.alt;
+});
 };
 /* Wiring up the Darken/Lighten button */
+btn.addEventListener("click", function() {
+  if (btn.className === "dark") {
+    btn.className = "light";
+    btn.textContent = "Lighten";
+    overlay.style.backgroundColor = "rgb(0 0 0 / 50%)";
+  } else {
+    btn.className = "dark";
+    btn.textContent = "Darken";
+    overlay.style.backgroundColor = "rgb(0 0 0 / 0%)";
+  }
+});
