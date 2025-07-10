@@ -1,3 +1,8 @@
+/*
+Name: Stuart Moss
+Date Modified: July 10th, 2025
+Description: Fork of the part 3 bouncing ball example, with added user input and playability and evilness.
+*/
 // setup canvas
 
 const canvas = document.querySelector("canvas");

@@ -1,3 +1,8 @@
+/*
+Name: Stuart Moss
+Date Modified: July 10th, 2025
+Description: Part 2 of Assignment4, allows you to select images and make them the images of focus based off of user input, also allows brightening and darkening of images.
+*/
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
 

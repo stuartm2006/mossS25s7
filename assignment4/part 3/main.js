@@ -1,5 +1,9 @@
 // setup canvas
-
+/*
+Name: Stuart Moss
+Date Modified: July 10th, 2025
+Description: Simulation of bouncing balls on the webpage.
+*/
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
