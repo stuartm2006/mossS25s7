@@ -17,25 +17,14 @@ function random(min, max) {
 function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
-class Shape{
-  constructor(x,y,velX,velY){
+class Ball {
+  constructor(x, y, velX, velY, color, size) {
     this.x = x;
     this.y = y;
     this.velX = velX;
     this.velY = velY;
     this.color = color;
     this.size = size;
-  }
-}
-class Ball extends Shape {
-  constructor(x, y, velX, velY, color, size) {
-    this.x = super(x);
-    this.y = super(y);
-    this.velX = super(velX);
-    this.velY = super(velY);
-    this.color = color;
-    this.size = size;
-    exists = true;
     }
     draw() {
     ctx.beginPath();
@@ -65,7 +54,7 @@ class Ball extends Shape {
   }
    collisionDetect() {
     for (const ball of balls) {
-      if (!(this === ball) && ball.exists) {
+      if (this !== ball) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -77,51 +66,6 @@ class Ball extends Shape {
     }
   }
 }
-class EvilCircle extends Shape {
-  constructor(x, y, velX, velY, color, size) {
-    super(x, y, velX, velY, true); // Adjust to match your Shape base class
-
-    this.color = color;
-    this.size = size;
-    this.velX = velX;
-    this.velY = velY;
-
-    window.addEventListener("keydown", (e) => {
-      switch (e.key) {
-        case "a":
-          this.x -= this.velX;
-          break;
-        case "d":
-          this.x += this.velX;
-          break;
-        case "w":
-          this.y -= this.velY;
-          break;
-        case "s":
-          this.y += this.velY;
-          break;
-      }
-    });
-  }
-  checkBounds() {
-  if (this.x + this.size >= width) {
-    this.x = width - this.size;
-  }
-
-  if (this.x - this.size <= 0) {
-    this.x = this.size;
-  }
-
-  if (this.y + this.size >= height) {
-    this.y = height - this.size;
-  }
-
-  if (this.y - this.size <= 0) {
-    this.y = this.size;
-  }
- }
-}
-
 const balls = [];
 
 while (balls.length < 25) {
