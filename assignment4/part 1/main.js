@@ -27,18 +27,27 @@ const insertZ = ["spontaneously combusted","melted into a puddle on the sidewalk
 randomize.addEventListener('click', result);
 
 function result() {
-  
+  var newStory = storyText;
+  var xItem = randomValueFromArray(insertX);
+  var yItem = randomValueFromArray(insertY);
+  var zItem = randomValueFromArray(insertZ);
+
+  newStory = newStory.replaceAll(":insertx:",xItem);
+  newStory = newStory.replaceAll(":inserty:",yItem);
+  newStory = newStory.replaceAll(":insertz:",zItem);
+
   if(customName.value !== '') {
     const name = customName.value;
-
+    newStory = newStory.replaceAll("Bob",name);
   }
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
-
+    const weight = Math.round(300/14)+ " Stone";
+    newStory =  newStory.replaceAll("300 pounds", weight);
+    const temperature =  Math.round((94-32)*0.55) + " Celsius";
+    newStory =  newStory.replaceAll("94 fahrenheit", temperature);
   }
 
-  story.textContent = ;
+  story.textContent = newStory;
   story.style.visibility = 'visible';
 }
