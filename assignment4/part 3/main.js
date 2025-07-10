@@ -17,14 +17,25 @@ function random(min, max) {
 function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
-class Ball {
-  constructor(x, y, velX, velY, color, size) {
+class Shape{
+  constructor(x,y,velX,velY){
     this.x = x;
     this.y = y;
     this.velX = velX;
     this.velY = velY;
     this.color = color;
     this.size = size;
+  }
+}
+class Ball extends Shape {
+  constructor(x, y, velX, velY, color, size) {
+    this.x = super(x);
+    this.y = super(y);
+    this.velX = super(velX);
+    this.velY = super(velY);
+    this.color = color;
+    this.size = size;
+    exists = true;
     }
     draw() {
     ctx.beginPath();
@@ -54,7 +65,7 @@ class Ball {
   }
    collisionDetect() {
     for (const ball of balls) {
-      if (this !== ball) {
+      if (!(this === ball) && ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -64,6 +75,13 @@ class Ball {
         }
       }
     }
+  }
+}
+class EvilCricle extends Shape{
+  constructor(x,y,velX,velY){
+    this.x = super(x);
+    this.y = super(y);
+    this
   }
 }
 const balls = [];
