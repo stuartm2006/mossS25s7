@@ -14,11 +14,11 @@ const altTitles = {
 [fileNames[4]]:"Picture of butterfly on a leaf",
 };
 /* Looping through images */
-for (const file in fileNames)
+for (const file of fileNames)
 {
 const newImage = document.createElement('img');
 newImage.setAttribute('src', `images/${file}`);
-newImage.setAttribute('alt', [altTitles[file]]);
+newImage.setAttribute('alt', altTitles[file]);
 thumbBar.appendChild(newImage);
 };
 /* Wiring up the Darken/Lighten button */
