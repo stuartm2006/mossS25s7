@@ -1,0 +1,28 @@
+html {
+  font-family: sans-serif;
+}
+
+div {
+    width: 200px;
+    height: 120px;
+    margin: 40px auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1 rem; /* Base font size is 16 so to get 18 it would be 1.8 rem */
+    
+    background-color: blueviolet;
+    color:yellow;
+    text-shadow: black 1px 1px 0px;
+    
+    border-radius: 10px;
+    border: 1px solid rgb(90, 14, 121);
+    
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2)30%, rgba(0, 0, 0, 0.2) 100%);
+    
+    box-shadow: black 0px 4px 8px;
+    box-shadow: rgba(0, 0, 0, 0.3)  2px 2px 4px inset;
+    box-shadow: rgba(0, 0, 0, 0.3) -2px -2px -4px inset;
+    
+}
