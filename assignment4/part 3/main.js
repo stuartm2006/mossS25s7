@@ -77,13 +77,51 @@ class Ball extends Shape {
     }
   }
 }
-class EvilCricle extends Shape{
-  constructor(x,y,velX,velY){
-    this.x = super(x);
-    this.y = super(y);
-    this
+class EvilCircle extends Shape {
+  constructor(x, y, velX, velY, color, size) {
+    super(x, y, velX, velY, true); // Adjust to match your Shape base class
+
+    this.color = color;
+    this.size = size;
+    this.velX = velX;
+    this.velY = velY;
+
+    window.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "a":
+          this.x -= this.velX;
+          break;
+        case "d":
+          this.x += this.velX;
+          break;
+        case "w":
+          this.y -= this.velY;
+          break;
+        case "s":
+          this.y += this.velY;
+          break;
+      }
+    });
   }
+  checkBounds() {
+  if (this.x + this.size >= width) {
+    this.x = width - this.size;
+  }
+
+  if (this.x - this.size <= 0) {
+    this.x = this.size;
+  }
+
+  if (this.y + this.size >= height) {
+    this.y = height - this.size;
+  }
+
+  if (this.y - this.size <= 0) {
+    this.y = this.size;
+  }
+ }
 }
+
 const balls = [];
 
 while (balls.length < 25) {
